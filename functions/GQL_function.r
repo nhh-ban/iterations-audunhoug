@@ -6,6 +6,7 @@
 # httr
 # jsonlite
 
+
 GQL <- function(query,
                 ...,
                 .token = NULL,
