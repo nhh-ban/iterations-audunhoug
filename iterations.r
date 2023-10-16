@@ -9,11 +9,15 @@ library(lubridate)
 library(anytime)
 library(readr)
 library(yaml)
+library(glue)
 
 #### 1: Beginning of script
 
 # Load function for posting GQL-queries and retrieving data: 
+setwd("/Users/audunhoug/Desktop/BAN400/Assignments/Assignment_6/iterations-audunhoug/")
+
 source("functions/GQL_function.r")
+
 
 # The URL we will use is stored below: 
 
@@ -23,13 +27,13 @@ configs <-
 
 gql_metadata_qry <- read_file("gql-queries/station_metadata.gql")
 
+
 # Let's try submitting the query: 
 
 stations_metadata <-
-  GQL(
-    query=gql_metadata_qry,
+  GQL(gql_metadata_qry,
     .url = configs$vegvesen_url
-    ) 
+    )
 
 
 #### 2: Transforming metadata
